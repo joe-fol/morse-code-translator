@@ -1,7 +1,5 @@
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 var input = document.querySelector('#morse__input');
 var translateButton = document.querySelector('#morse__translator');
 var morseDisplay = document.querySelector('#morse__window');
@@ -49,24 +47,13 @@ var invert = function invert(alphabet) {
 };
 
 reverse = invert(alphabet);
-console.log(reverse);
 
-var generateMorse = function generateMorse(alphabet) {
-  var morseChecker = userInput.map(function (letter) {
-    var morseTranslate = alphabet[letter];
-    return morseTranslate;
+var getTranslation = function getTranslation(alphabet) {
+  var getItems = userInput.map(function (letter) {
+    var getValues = alphabet[letter];
+    return getValues;
   });
-  return morseChecker.join('');
-};
-
-var generateEnglish = function generateEnglish(reverse) {
-  console.log('inside', reverse);
-  var englishChecker = userInput.map(function (morse) {
-    var englishTranslate = reverse[morse];
-    return englishTranslate;
-  });
-  console.log(englishChecker);
-  return englishChecker.join('');
+  return getItems.join('');
 };
 
 translateButton.addEventListener('click', function (event) {
@@ -74,11 +61,9 @@ translateButton.addEventListener('click', function (event) {
 
   if (input.value.match(/[a-z0-9]/gi)) {
     userInput = input.value.toLowerCase().split('');
-    console.log('english', userInput, _typeof(userInput));
-    morseDisplay.innerHTML = generateMorse(alphabet);
+    morseDisplay.innerHTML = getTranslation(alphabet);
   } else {
     userInput = input.value.split('/');
-    console.log('morse', userInput, _typeof(userInput));
-    morseDisplay.innerHTML = generateEnglish(reverse);
+    morseDisplay.innerHTML = getTranslation(reverse);
   }
 });
