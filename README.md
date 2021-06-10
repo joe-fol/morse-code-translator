@@ -1,5 +1,5 @@
-Morse Code Translator
--
+# Morse Code Translator
+## -- --- .-. ... . --- -.. . .-. .- -. ... .-.. .- - --- .-.
 
 A simple Morse code translator written in Javascript and simple styling.
 
